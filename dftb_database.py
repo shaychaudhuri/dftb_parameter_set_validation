@@ -53,4 +53,3 @@ for i in range(len(aims_db)):
   dftb_db.write(atoms, data)
   
   os.chdir('../../')
-     
