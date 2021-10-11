@@ -25,5 +25,15 @@ def dftb_opt_calc(atoms):
     # Hamiltonian-specific settings
     Hamiltonian_Filling_ = 'Fermi',
     Hamiltonian_Filling_Temperature = 1160*K2Ha,
+    Hamiltonian_Mixer_ = 'Broyden',
+    Hamiltonian_Mixer_MixingParameter = 0.01,
+    Hamiltonian_Mixer_InverseJacobiWeight = 0.01,
+    Hamiltonian_Mixer_MinimalWeight = 1.0,
+    Hamiltonian_Mixer_MaximalWeight = 1E5,
     
+    Hamiltonian_SlaterKosterFiles_Prefix = 'dev/null',
+    Hamiltonian_MaxAngularMomentum_ = '',
     
+    kpts = (16,16,1) if (atoms.get_pbc() == [True, True, True]).all() else None,
+    
+    # Dispersion settings
