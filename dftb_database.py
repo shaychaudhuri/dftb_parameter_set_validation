@@ -17,7 +17,7 @@ for i in range(len(aims_db)):
   os.chdir(aims_db[i].data.name)
   
   ## Run optimisation calculation
-  atoms = read('FHIaims.db@'+str(i-1))
+  atoms = read(f'FHIaims.db@{i-1}')
   dftb_opt = dftb_opt_calc(atoms)
   dftb_opt.set(Hamiltonian_SlaterKosterFiles_Prefix = f"path/to/{parameter_set}/")
   
