@@ -31,7 +31,7 @@ def dftb_opt_calc(atoms):
     Hamiltonian_Mixer_MinimalWeight = 1.0,
     Hamiltonian_Mixer_MaximalWeight = 1E5,
     
-    Hamiltonian_SlaterKosterFiles_Prefix = 'dev/null',
+    Hamiltonian_SlaterKosterFiles_Prefix = '/dev/null',
     Hamiltonian_MaxAngularMomentum_ = '',
     
     kpts = (16,16,1) if (atoms.get_pbc() == [True, True, True]).all() else None,
@@ -75,7 +75,7 @@ def dftb_opt_calc(atoms):
     Hamiltonian_Mixer_MinimalWeight = 1.0,
     Hamiltonian_Mixer_MaximalWeight = 1E5,
     
-    Hamiltonian_SlaterKosterFiles_Prefix = 'dev/null',
+    Hamiltonian_SlaterKosterFiles_Prefix = '/dev/null',
     Hamiltonian_MaxAngularMomentum_ = '',
     
     kpts = (16,16,1) if (atoms.get_pbc() == [True, True, True]).all() else None,
