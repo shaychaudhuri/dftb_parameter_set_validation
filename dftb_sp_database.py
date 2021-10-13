@@ -13,17 +13,17 @@ aims_db = connect("FHIaims.db")
 dftb_db = connect(f'{parameter_set}_SP.db')
 
 for i in range(len(aims_db)):
-  os.mkdir(aims_db[i].data.name)
-  os.chdir(aims_db[i].data.name)
+    os.mkdir(aims_db[i].data.name)
+    os.chdir(aims_db[i].data.name)
   
-  ## Run single-point calculation
-  atoms = read(f'FHIaims.db@{i-1}')
-  dftb_sp = dftb_sp_calc(atoms)
-  dftb_sp.set(Hamiltonian_SlaterKosterFiles_Prefix = f"path/to/{parameter_set}/")
+    ## Run single-point calculation
+    atoms = read(f'FHIaims.db@{i-1}')
+    dftb_sp = dftb_sp_calc(atoms)
+    dftb_sp.set(Hamiltonian_SlaterKosterFiles_Prefix = f"path/to/{parameter_set}/")
       
-  dftb_sp.calculate(atoms)
+    dftb_sp.calculate(atoms)
   
-  data = {'name': aims_db[i].data.name,
+    data = {'name': aims_db[i].data.name,
           'dftb_out': open("dftb.out", 'r').read(),
           'dftb_in_hsd': open("dftb_in.hsd", 'r').read(),
           'dftb_pin_hsd': open("dftb_pin.hsd", 'r').read(),
@@ -32,6 +32,6 @@ for i in range(len(aims_db)):
           'detailed_out': open("detailed.out", 'r').read()
          }
   
-  dftb_db.write(atoms, data=data)
+    dftb_db.write(atoms, data=data)
   
-  os.chdir('../')
+    os.chdir('../')
