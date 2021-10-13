@@ -14,7 +14,7 @@ size = len(dftb_db)+1
 
 for i in range(1, size):
     name = dftb_sp_db[i].data.name
-    if "@" not in name:
+    if '@' not in name:
         continue
     else:
         combined = name
