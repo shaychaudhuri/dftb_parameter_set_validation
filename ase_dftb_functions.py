@@ -38,7 +38,6 @@ def dftb_opt_calc(atoms):
     
     # Dispersion settings
     Hamiltonian_Dispersion_ = 'MBD',
-    Hamiltonian_Dispersion_KGrid = '1 1 1',
     Hamiltonian_Dispersion_Beta = 0.95,
     
     # Analysis settings
