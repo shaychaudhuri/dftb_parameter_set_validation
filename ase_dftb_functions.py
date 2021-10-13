@@ -45,6 +45,10 @@ def dftb_opt_calc(atoms):
     Analysis_ = '',
     Analysis_CalculateForces = 'YES',
     
+    # Parallel settings (if needed)
+    # Parallel_ = '',
+    # Parallel_Groups = , # Make sure integer is a divisor of the total number of MPI processes
+    
     # Options
     Options_ = '',
     Options_WriteResultsTag = 'YES',
@@ -84,6 +88,10 @@ def dftb_opt_calc(atoms):
     # Analysis settings
     Analysis_ = '',
     Analysis_CalculateForces = 'YES',
+    
+    # Parallel settings (if needed)
+    # Parallel_ = '',
+    # Parallel_Groups = , # Make sure integer is a divisor of the total number of MPI processes
     
     # Options
     Options_ = '',
