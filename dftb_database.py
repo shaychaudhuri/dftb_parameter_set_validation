@@ -20,6 +20,10 @@ for i in range(len(aims_db)):
   atoms = read(f'FHIaims.db@{i-1}')
   dftb_opt = dftb_opt_calc(atoms)
   dftb_opt.set(Hamiltonian_SlaterKosterFiles_Prefix = f"path/to/{parameter_set}/")
+  if (atoms.get_pbc() == [True, True, True]).all():
+    dftb_opt.set(Hamiltonian_Dispersion_KGrid = '16 16 1')
+  else:
+    dftb_opt.set(Hamiltonian_Dispersion_KGrid = '1 1 1')
   
   # Set constraints if needed
   fixed = constrained_indices(atoms)
