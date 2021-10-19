@@ -47,3 +47,4 @@ for i in range(1, size):
                         adsorbate_energy = float(linesplit[-2])               
                         
         adsorption_energy = combined_energy - substrate_energy - adsorbate_energy                
+        print(f'{adsorbate} on {substrate} adsorption energy with {parameter_set} is {adsorption_energy} eV')
