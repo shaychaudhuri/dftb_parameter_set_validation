@@ -29,8 +29,8 @@ for i in range(1, size):
                 linesplit = line.split()
                 combined_energy = float(linesplit[-2])
                 
-        ## Get substrate energy
         for j in range(1, size):
+            ## Get substrate energy
             if substrate == dftb_sp_db[j].data.name:
                 substrate_file = dftb_sp_db[j].data.dftb_out.splitlines()
                 for line in substrate_file:
@@ -38,8 +38,7 @@ for i in range(1, size):
                         linesplit = line.split()
                         substrate_energy = float(linesplit[-2])
                         
-        ## Get adsorbate energy
-        for j in range(1, size):
+            ## Get adsorbate energy
             if adsorbate == dftb_sp_db[j].data.name:
                 adsorbate_file = dftb_sp_db[j].data.dftb_out.splitlines()
                 for line in adsorbate_file:
