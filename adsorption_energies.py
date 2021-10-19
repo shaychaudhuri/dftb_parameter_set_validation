@@ -12,6 +12,7 @@ dftb_sp_db = connect(f"{parameter_set}_SP.db")
 
 size = len(dftb_db)+1
 
+## DFTB adsorption energy
 for i in range(1, size):
     name = dftb_sp_db[i].data.name
     if '@' not in name:
@@ -47,4 +48,3 @@ for i in range(1, size):
                         adsorbate_energy = float(linesplit[-2])               
                         
         adsorption_energy = combined_energy - substrate_energy - adsorbate_energy                
-        print(f'{adsorbate} on {substrate} adsorption energy with {parameter_set} is {adsorption_energy} eV')
