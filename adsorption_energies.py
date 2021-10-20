@@ -48,7 +48,7 @@ for i in range(1, size):
                     if "Total Energy:" in line:
                         linesplit = line.split()
                         adsorbate_energy = float(linesplit[-2])   
-            elif adsorbate in [f'{x}_{y} for y in orientation for x in dict]:
+            elif adsorbate in [f'{x}_{y}' for y in orientation for x in dict]:
                 symbols = adsorbate.split("_")[0]
                 adsorbate = dict[symbols]
                 if adsorbate == dftb_sp_db[j].data.name:
