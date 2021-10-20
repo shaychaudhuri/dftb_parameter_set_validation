@@ -12,6 +12,9 @@ dftb_sp_db = connect(f"{parameter_set}_SP.db")
 
 size = len(dftb_db)+1
 
+dict = {'CH':'Methylidyne', 'CN':'Cyanide', 'CO':'Carbon_Monoxide', 'NO':'Nitric_Oxide'}
+orientation = ['top', 'bottom']
+
 ## DFTB adsorption energy
 for i in range(1, size):
     name = dftb_sp_db[i].data.name
@@ -44,6 +47,15 @@ for i in range(1, size):
                 for line in adsorbate_file:
                     if "Total Energy:" in line:
                         linesplit = line.split()
-                        adsorbate_energy = float(linesplit[-2])               
+                        adsorbate_energy = float(linesplit[-2])   
+            elif adsorbate in [f'{x}_{y} for y in orientation for x in dict]:
+                symbols = adsorbate.split("_")[0]
+                adsorbate = dict[symbols]
+                if adsorbate == dftb_sp_db[j].data.name:
+                    adsorbate_file = dftb_sp_db[j].data.dftb_out.splitlines()
+                    for line in adsorbate_file:
+                        if "Total Energy:" in line:
+                            linesplit = line.split()
+                            adsorbate_energy = float(linesplit[-2])
                         
         adsorption_energy = combined_energy - substrate_energy - adsorbate_energy                
