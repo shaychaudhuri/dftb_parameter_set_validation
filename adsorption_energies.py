@@ -1,6 +1,7 @@
 from ase import Atoms
 from ase.db import connect
 from ase.io import read
+import matplotlib.pyplot as plt
 import numpy as np
 import os
 
