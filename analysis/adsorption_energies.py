@@ -114,6 +114,7 @@ for i in range(1, size):
         
 file = open("adsorption_energies.dat", 'r')
 
-fig, ax1 = plt.subplots()
+fig, ax = plt.subplots()
 
-ax1.set_ylabel('Adsorption Energy (eV)', fontsize=13)
+ax.set_ylabel('Adsorption Energy (eV)', fontsize=12)
+ax.tick_params(axis='both', labelsize=12)
