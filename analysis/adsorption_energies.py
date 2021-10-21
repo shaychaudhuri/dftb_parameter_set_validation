@@ -111,3 +111,9 @@ for i in range(1, size):
 
         file = open('adsorption_energies.dat', 'a')
         file.write(f'{name} \t {adsorption_energy_dft} \t {adsorption_energy_dftb} \n')
+        
+file = open("adsorption_energies.dat", 'r')
+
+fig, ax1 = plt.subplots()
+
+ax1.set_ylabel('Adsorption Energy (eV)', fontsize=13)
