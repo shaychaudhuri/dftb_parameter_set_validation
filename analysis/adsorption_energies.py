@@ -110,7 +110,7 @@ for i in range(1, size):
         adsorption_energy_dftb = combined_energy_dftb - substrate_energy_dftb - adsorbate_energy_dftb             
 
         file = open('adsorption_energies.dat', 'a')
-        file.write(f'{name} \t {adsorption_energy_dft} \t {adsorption_energy_dftb} \n')
+        file.write(f'{combined} \t {adsorption_energy_dft} \t {adsorption_energy_dftb} \n')
         
 file = open("adsorption_energies.dat", 'r')
 
