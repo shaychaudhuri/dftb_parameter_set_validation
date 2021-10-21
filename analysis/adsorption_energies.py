@@ -112,7 +112,7 @@ for i in range(1, size):
         file = open('adsorption_energies.dat', 'a')
         file.write(f'{combined} \t {adsorption_energy_dft} \t {adsorption_energy_dftb} \n')
         
-file = open("adsorption_energies.dat", 'r')
+file = np.loadtxt("adsorption_energies.dat", dtype=str)
 
 fig, ax = plt.subplots()
 
