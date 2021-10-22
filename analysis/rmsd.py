@@ -1,6 +1,7 @@
 from ase import Atoms
 from ase.db import connect
 from ase.io import read
+from math import sqrt
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -22,4 +23,8 @@ for i in range(1, size):
     dftb_atoms = read(str(parameter_set)+'.db@'+str(i-1))
     dftb_positions = dftb_atoms.get_positions()
     
-    RMSD = np.average([(np.linalg.norm(dftb_positions[j]-dft_positions[j])**2) for j in range(len(dft_positions))])
+    MSD = 0
+    for j in range(len(dft_positions)):
+        MSD += (dftb_positions[j][0]-dft_positions[j][0])**2 + (dftb_positions[j][1]-dft_positions[j][1])**2 + (dftb_positions[j][2]-dft_positions[j][2])**2
+    MSD /= len(dft_positions)
+    RMSD = sqrt(MSD)
