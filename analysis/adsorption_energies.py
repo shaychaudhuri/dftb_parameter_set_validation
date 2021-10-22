@@ -117,7 +117,7 @@ file = np.loadtxt("adsorption_energies.dat", dtype=str)
 sub_dict = {'Au10':'Au$_{10}$', 'Au18':'Au$_{18}$', 'Au34':'Au$_{34}$', 'Au111':'Au(111)'}
 
 substrates = list(set([i.split("@")[1] for i in file[:,0]]))
-for i in range(len(substrates)):
+for i in range(len(substrates)+1):
     ax = plt.figure(i)
     plt.title(sub_dict[substrates[i]], fontsize=14)
     plt.ylabel('Adsorption Energy (eV)', fontsize=12)
