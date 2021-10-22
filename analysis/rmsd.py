@@ -28,3 +28,7 @@ for i in range(1, size):
         MSD += (dftb_positions[j][0]-dft_positions[j][0])**2 + (dftb_positions[j][1]-dft_positions[j][1])**2 + (dftb_positions[j][2]-dft_positions[j][2])**2
     MSD /= len(dft_positions)
     RMSD = sqrt(MSD)
+
+    file = open('rmsd.dat', 'a')
+    file.write(f'{aims_db[i].data.name} \t {RMSD} \n')
+    file.close()
