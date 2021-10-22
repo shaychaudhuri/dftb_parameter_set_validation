@@ -32,3 +32,11 @@ for i in range(1, size):
     file = open('rmsd.dat', 'a')
     file.write(f'{aims_db[i].data.name} \t {RMSD} \n')
     file.close()
+
+file = open("rmsd.dat", 'a')
+
+plt.ylabel('Root-Mean-Square Deviation (Å)', fontsize=12)
+plt.yticks(fontsize=12)
+
+plt.tight_layout()
+plt.savefig('RMSD.png')
