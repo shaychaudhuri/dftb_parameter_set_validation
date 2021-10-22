@@ -141,12 +141,12 @@ for i in range(len(substrates)):
             plt.bar(counter-width/2, float(file[l,1]), width=width, color=dft_color)
             plt.bar(counter+width/2, float(file[l,2]), width=width, color=dftb_color)
             plt.xticks(x, labels=xlabels, fontsize=12)
+            plt.setp(plt.gca().get_xticklabels(), rotation=30, ha='right')
             
-     yaxis = plt.gca()
-     plt.ylim(yaxis.get_ylim()[::-1])
+     plt.ylim(plt.gca().get_ylim()[::-1])
      
      dft = mpatches.Patch(color=dft_color, label='DFT')
      dftb = mpatches.Patch(color=dftb_color, label=parameter_set)
      plt.legend(handles=[dft, dftb], loc='upper left', prop={'size':12})
       
-     plt.savefig(f'{parameter_set}_{substrates[i]}_Eads.png')
+     plt.savefig(f'Eads_{substrates[i]}.png')
