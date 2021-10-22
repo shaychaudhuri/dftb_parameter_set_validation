@@ -113,8 +113,39 @@ for i in range(1, size):
         file.write(f'{combined} \t {adsorption_energy_dft} \t {adsorption_energy_dftb} \n')
         
 file = np.loadtxt("adsorption_energies.dat", dtype=str)
+sub_dict = {'Au10':'Au$_{10}$', 'Au18':'Au$_{18}$', 'Au34':'Au$_{34}$', 'Au111':'Au(111)'}
 
-fig, ax = plt.subplots()
-
-ax.set_ylabel('Adsorption Energy (eV)', fontsize=12)
-ax.tick_params(axis='both', labelsize=12)
+substrates = list(set([i.split("@")[1] for i in file[:,0]]))
+for i in range(len(substrates)):
+    ax = plt.figure(i)
+    plt.title(sub_dict[substrates[i]], fontsize=14)
+    plt.ylabel('Adsorption Energy (eV)', fontsize=12)
+    plt.yticks(fontsize=12)
+    
+    xlabels = []
+    for j in file[:,0]:
+        if j.split("@")[1] == substrates[i]
+            xlabels.append(j.split("@")[0])
+            x, width = np.arange(len(xlabels)), 0.35
+    for k in range(len(xlabels)):
+        if "_" in xlabels[k]:
+            xlabels[k] = xlabels[k].replace("_", ' ')
+    
+    dft_color, dftb_color = 'firebrick', 'sandybrown'
+    counter = -1
+    
+    for l in range(len(file[:,0])):
+        if file[l,0].split("@")[1] == substrates[i]:
+            counter += 1
+            plt.bar(counter-width/2, float(file[l,1]), width=width, color=dft_color)
+            plt.bar(counter+width/2, float(file[l,2]), width=width, color=dftb_color)
+            plt.xticks(x, labels=xlabels, fontsize=12)
+            
+     yaxis = plt.gca()
+     plt.ylim(yaxis.get_ylim()[::-1])
+     
+     dft = mpatches.Patch(color=dft_color, label='DFT')
+     dftb = mpatches.Patch(color=dftb_color, label=parameter_set)
+     plt.legend(handles=[dft, dftb], loc='upper left', prop={'size':12})
+        
+plt.show()               
