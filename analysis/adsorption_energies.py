@@ -112,6 +112,7 @@ for i in range(1, size):
 
         file = open('adsorption_energies.dat', 'a')
         file.write(f'{combined} \t {adsorption_energy_dft} \t {adsorption_energy_dftb} \n')
+        file.close()
         
 file = np.loadtxt("adsorption_energies.dat", dtype=str)
 sub_dict = {'Au10':'Au$_{10}$', 'Au18':'Au$_{18}$', 'Au34':'Au$_{34}$', 'Au111':'Au(111)'}
