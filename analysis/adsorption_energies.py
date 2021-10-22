@@ -147,6 +147,6 @@ for i in range(len(substrates)):
      
      dft = mpatches.Patch(color=dft_color, label='DFT')
      dftb = mpatches.Patch(color=dftb_color, label=parameter_set)
-     plt.legend(handles=[dft, dftb], loc='upper left', prop={'size':12})
+     plt.legend(handles=[dft, dftb], loc='upper right', prop={'size':12})
       
      plt.savefig(f'Eads_{substrates[i]}.png')
