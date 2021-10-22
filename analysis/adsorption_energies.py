@@ -140,7 +140,7 @@ for i in range(len(substrates)):
             counter += 1
             plt.bar(counter-width/2, float(file[l,1]), width=width, color=dft_color)
             plt.bar(counter+width/2, float(file[l,2]), width=width, color=dftb_color)
-            plt.xticks(x, labels=xlabels, fontsize=12)
+            plt.xticks(x, labels=xlabels, fontsize=10)
             plt.setp(plt.gca().get_xticklabels(), rotation=30, ha='right')
             
      plt.ylim(plt.gca().get_ylim()[::-1])
