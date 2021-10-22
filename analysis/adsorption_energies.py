@@ -117,7 +117,7 @@ file = np.loadtxt("adsorption_energies.dat", dtype=str)
 sub_dict = {'Au10':'Au$_{10}$', 'Au18':'Au$_{18}$', 'Au34':'Au$_{34}$', 'Au111':'Au(111)'}
 
 substrates = list(set([i.split("@")[1] for i in file[:,0]]))
-for i in range(len(substrates)+1):
+for i in range(len(substrates)):
     ax = plt.figure(i)
     plt.title(sub_dict[substrates[i]], fontsize=14)
     plt.ylabel('Adsorption Energy (eV)', fontsize=12)
@@ -135,7 +135,7 @@ for i in range(len(substrates)+1):
     dft_color, dftb_color = 'firebrick', 'sandybrown'
     counter = -1
     
-    for l in range(len(file[:,0])):
+    for l in range(len(file[:,0])+1):
         if file[l,0].split("@")[1] == substrates[i]:
             counter += 1
             plt.bar(counter-width/2, float(file[l,1]), width=width, color=dft_color)
@@ -148,5 +148,5 @@ for i in range(len(substrates)+1):
      dft = mpatches.Patch(color=dft_color, label='DFT')
      dftb = mpatches.Patch(color=dftb_color, label=parameter_set)
      plt.legend(handles=[dft, dftb], loc='upper left', prop={'size':12})
-        
-plt.show()               
+      
+     plt.savefig(f'{parameter_set}_{substrates[i]}_Eads.png')
