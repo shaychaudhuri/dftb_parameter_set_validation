@@ -1,6 +1,7 @@
 from ase import Atoms
 from ase.db import connect
 from ase.io import read
+from scipy.stats import pearsonr
 import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 import numpy as np
@@ -133,6 +134,7 @@ for i in range(len(substrates)):
             xlabels[k] = xlabels[k].replace("_", ' ')
     
     dft_color, dftb_color = 'firebrick', 'sandybrown'
+    dft_data, dftb_data = np.array([]), np.array([])
     counter = -1
     
     for l in range(len(file[:,0])+1):
@@ -143,10 +145,16 @@ for i in range(len(substrates)):
             plt.xticks(x, labels=xlabels, fontsize=10)
             plt.setp(plt.gca().get_xticklabels(), rotation=30, ha='right')
             
+            dft_data = np.append(dft_data, float(file[l,1]))
+            dftb_data = np.append(dftb_data, float(file[l,2]))
+     pearson = pearsonr(dft_data, dftb_data)[0]
+    
      plt.ylim(plt.gca().get_ylim()[::-1])
      
      dft = mpatches.Patch(color=dft_color, label='DFT')
      dftb = mpatches.Patch(color=dftb_color, label=parameter_set)
      plt.legend(handles=[dft, dftb], loc='upper right', prop={'size':12})
+        
+     plt.text(-0.5, max(plt.gca().get_ylim())-3, f'Pearson Correlation\nCoefficient, $\\rho$: {np.round(pearson,3)}')
       
      plt.savefig(f'Eads_{substrates[i]}.png')
