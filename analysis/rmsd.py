@@ -50,8 +50,8 @@ std = np.std([float(i) for i in file[:,1]], axis=0)
 
 plt.text(x[-30], 2.0, f'Mean average, $\mu$: {np.round(average,3)} Å\nStandard deviation, $\sigma$: {np.round(std,3)} Å')
 
-for i in range(len(file[:,0])):
-    plt.annotate(file[i,0], xy=(x[i], float(file[i,1]))), rotation=90, fontsize=8
+#for i in range(len(file[:,0])):
+#    plt.annotate(file[i,0], xy=(x[i], float(file[i,1]))), rotation=90, fontsize=8)
 
 plt.tight_layout()
 plt.savefig('RMSD.png')
