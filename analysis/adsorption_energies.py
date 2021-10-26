@@ -155,6 +155,6 @@ for i in range(len(substrates)):
      dftb = mpatches.Patch(color=dftb_color, label=parameter_set)
      plt.legend(handles=[dft, dftb], loc='upper right', prop={'size':12})
         
-     plt.text(-0.5, max(plt.gca().get_ylim())-3, f'Pearson Correlation\nCoefficient, $\\rho$: {np.round(pearson,3)}')
+     plt.text(-0.5, max(plt.gca().get_ylim())-3, f'Pearson correlation\ncoefficient, $\\rho$: {np.round(pearson,3)}')
       
      plt.savefig(f'Eads_{substrates[i]}.png')
