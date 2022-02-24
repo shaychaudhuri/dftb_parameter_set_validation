@@ -61,7 +61,7 @@ def dftb_opt_calc(atoms):
   return calc
     
 ## Define DFTB+ single-point calculator
-def dftb_opt_calc(atoms):
+def dftb_sp_calc(atoms):
   calc = Dftb(
     # SCC settings
     Hamiltonian_SCC = 'YES',
